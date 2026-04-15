@@ -1,0 +1,26 @@
+id,course_name,major,duration_months
+1,Cloud Computing,Computer Science,5
+2,Cybersecurity,Information Systems,9
+3,Python Programming,Computer Science,5
+4,Web Development,Computer Science,11
+5,Database Systems,Information Systems,6
+6,Networking Fundamentals,Computer Science,9
+7,Entrepreneurship,Business,8
+8,Marketing Management,Business,13
+9,Human Resource Management,Business,17
+10,Operations Management,Business,15
+11,Business Communication,Business,9
+12,Business Law,Law,16
+13,Contract Law,Law,13
+14,Corporate Law,Law,4
+15,Constitutional Law,Law,17
+16,International Trade Law,Law,13
+17,Financial Accounting,Accounting,11
+18,Management Accounting,Accounting,1
+19,Taxation,Accounting,9
+20,Auditing,Accounting,3
+21,Corporate Finance,Finance,6
+22,Data Analytics,Data Science,10
+23,Business Intelligence,Business Analytics,4
+24,Statistics,Data Science,6
+25,Research Methods,Information Systems,4
