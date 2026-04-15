@@ -36,28 +36,6 @@ The Student Records Management System is a group project designed to manage and 
 
 ---
 
-## 🚀 How to Run the Project
-
-### 1. Install dependencies
-
-```bash
-pip install pandas faker openpyxl
-```
-
-### 2. Run the main script
-
-```bash
-python student_system.py
-```
-
-### 3. (Optional) Run CLI
-
-```bash
-python cli.py
-```
-
----
-
 ## 🗂️ Project Structure
 
 ```
