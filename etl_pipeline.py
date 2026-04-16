@@ -90,3 +90,102 @@ def load_data(query, data):
     finally:
         cursor.close()
         conn.close()
+
+# ---------------- PIPELINES ----------------
+def load_students():
+    df = extract("student_dataset/students data.csv")
+    df = transform_students(df)
+
+    data = list(df[[
+        "id", "name", "surname", "email", "date_of_birth", "gender"
+    ]].itertuples(index=False, name=None))
+
+    query = """
+        INSERT INTO students (id, name, surname, email, date_of_birth, gender)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        ON CONFLICT (id) DO NOTHING;
+    """
+
+    load_data(query, data)
+
+def load_courses():
+    df = extract("student_dataset/courses data.csv")
+    df = clean_columns(df)
+
+    data = list(df[[
+        "id", "course_name", "major", "duration_months"
+    ]].itertuples(index=False, name=None))
+
+    query = """
+        INSERT INTO courses (id, course_name, major, duration_months)
+        VALUES (%s, %s, %s, %s)
+        ON CONFLICT (id) DO NOTHING;
+    """
+
+    load_data(query, data)
+
+def load_enrollments():
+    df = extract("student_dataset/enrollments data.csv")
+    df = clean_columns(df)
+
+    data = list(df[[
+        "id", "student_id", "course_id"
+    ]].itertuples(index=False, name=None))
+
+    query = """
+        INSERT INTO enrollments (id, student_id, course_id)
+        VALUES (%s, %s, %s)
+        ON CONFLICT (id) DO NOTHING;
+    """
+
+    load_data(query, data)
+
+def load_grades():
+    df = extract("student_dataset/grades data.csv")
+    df = transform_grades(df)
+
+    data = list(df[[
+        "id", "enrollment_id", "assignment_grade", "exam_grade", "final_score"
+    ]].itertuples(index=False, name=None))
+
+    query = """
+        INSERT INTO grades (id, enrollment_id, assignment_grade, exam_grade, final_score)
+        VALUES (%s, %s, %s, %s, %s)
+        ON CONFLICT (id) DO NOTHING;
+    """
+
+    load_data(query, data)
+
+def load_attendance():
+    df = extract("student_dataset/attendance data.csv")
+    df = transform_attendance(df)
+
+    data = list(df[[
+        "id", "enrollment_id", "attendance_percentage"
+    ]].itertuples(index=False, name=None))
+
+    query = """
+        INSERT INTO attendance (id, enrollment_id, attendance_percentage)
+        VALUES (%s, %s, %s)
+        ON CONFLICT (id) DO NOTHING;
+    """
+
+    load_data(query, data)
+
+# ---------------- MAIN ----------------
+if __name__ == "__main__":
+    try:
+        logging.info("ETL started")
+
+        load_students()
+        load_courses()
+        load_enrollments()
+        load_grades()
+        load_attendance()
+
+        print("ETL pipeline completed successfully")
+        logging.info("ETL completed")
+
+    except Exception as e:
+        print("ETL failed", e)
+        logging.error(f"ETL failed: {e}")
