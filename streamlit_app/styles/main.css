@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.stApp {
+    background: linear-gradient(135deg, #0a0f1e 0%, #0d1b3e 50%, #0a1628 100%);
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+[data-testid="stSidebar"] {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-testid="stSidebarNav"] a {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0.75rem;
+}
+
+[data-testid="stSidebarNav"] a:hover {
+    background: rgba(79, 142, 247, 0.15);
+    color: #ffffff;
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] {
+    background: linear-gradient(135deg, rgba(79, 142, 247, 0.25), rgba(0, 198, 255, 0.15));
+    color: #ffffff;
+    font-weight: 600;
+    border: 1px solid rgba(79, 142, 247, 0.3);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.metric-card-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.metric-card-value {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.metric-card-sub {
+    color: rgba(79, 142, 247, 0.9);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-top: 0.4rem;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #4f8ef7, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+}
+
+.stMarkdown {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.stButton > button {
+    background: linear-gradient(135deg, #0072ff, #00c6ff) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    opacity: 0.85 !important;
+    transform: translateY(-1px) !important;
+    color: #ffffff !important;
+}
+
+.stButton > button:focus,
+.stButton > button:active {
+    background: linear-gradient(135deg, #0072ff, #00c6ff) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.stFormSubmitButton > button {
+    background: linear-gradient(135deg, #0072ff, #00c6ff) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.stFormSubmitButton > button:hover {
+    opacity: 0.85 !important;
+    transform: translateY(-1px) !important;
+    color: #ffffff !important;
+}
+
+.stFormSubmitButton > button:focus,
+.stFormSubmitButton > button:active {
+    background: linear-gradient(135deg, #0072ff, #00c6ff) !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.stDownloadButton > button {
+    background: rgba(79, 142, 247, 0.15) !important;
+    color: #4f8ef7 !important;
+    border: 1px solid rgba(79, 142, 247, 0.3) !important;
+    border-radius: 10px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.stDownloadButton > button:hover {
+    background: rgba(79, 142, 247, 0.3) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(79, 142, 247, 0.6) !important;
+}
+
+.stTextInput > div > div {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.stTextInput > div > div > input {
+    color: #0a0f1e !important;
+    font-family: 'Inter', sans-serif !important;
+    caret-color: #0a0f1e !important;
+}
+
+.stTextInput > div > div > input::placeholder {
+    color: rgba(10, 15, 30, 0.45) !important;
+}
+
+.stTextInput label {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+.stSelectbox > div > div {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #0a0f1e !important;
+}
+
+.stSelectbox label {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+.stNumberInput > div > div {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.stNumberInput > div > div > input {
+    color: #0a0f1e !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.stNumberInput label {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+.stDateInput > div > div {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.stDateInput > div > div > input {
+    color: #0a0f1e !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.stDateInput label {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stForm"] {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+[data-testid="stDataFrame"] {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+[data-testid="stMetric"] {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+}
+
+[data-testid="stMetricLabel"] {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+[data-testid="stMetricValue"] {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.stAlert {
+    border-radius: 10px !important;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 1.5rem 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(79, 142, 247, 0.4);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 142, 247, 0.7);
+}
+
+.sidebar-logo {
+    padding: 1.5rem 1rem 1rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1rem;
+}
+
+.sidebar-logo-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.sidebar-logo-sub {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.2rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.badge-blue {
+    background: rgba(79, 142, 247, 0.2);
+    color: #4f8ef7;
+    border: 1px solid rgba(79, 142, 247, 0.3);
+}
+
+.badge-green {
+    background: rgba(0, 210, 150, 0.15);
+    color: #00d296;
+    border: 1px solid rgba(0, 210, 150, 0.3);
+}
+
+.badge-red {
+    background: rgba(255, 80, 80, 0.15);
+    color: #ff5050;
+    border: 1px solid rgba(255, 80, 80, 0.3);
+}
+
+.badge-yellow {
+    background: rgba(255, 200, 0, 0.15);
+    color: #ffc800;
+    border: 1px solid rgba(255, 200, 0, 0.3);
+}
