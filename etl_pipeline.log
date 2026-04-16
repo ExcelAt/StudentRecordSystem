@@ -1,0 +1,23 @@
+2026-04-16 12:31:22,977 - INFO - ETL started
+2026-04-16 12:31:44,352 - ERROR - ETL failed: connection to server at "studentrecordsdb.postgres.database.azure.com" (20.87.51.255), port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-04-16 13:11:34,973 - INFO - ETL started
+2026-04-16 13:11:56,140 - ERROR - Load failed: connection to server at "studentrecordsdb.postgres.database.azure.com" (20.87.51.255), port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-04-16 13:11:56,143 - ERROR - ETL failed: connection to server at "studentrecordsdb.postgres.database.azure.com" (20.87.51.255), port 5432 failed: Connection timed out (0x0000274C/10060)
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-04-16 14:23:35,857 - INFO - ETL started
+2026-04-16 14:23:38,458 - ERROR - Load failed: connection to server at "studentrecordsdb.postgres.database.azure.com" (20.87.51.255), port 5432 failed: FATAL:  password authentication failed for user "exceladmin"
+
+2026-04-16 14:23:38,458 - ERROR - ETL failed: connection to server at "studentrecordsdb.postgres.database.azure.com" (20.87.51.255), port 5432 failed: FATAL:  password authentication failed for user "exceladmin"
+
+2026-04-16 14:28:28,520 - INFO - ETL started
+2026-04-16 14:28:41,602 - INFO - Data loaded successfully
+2026-04-16 14:28:41,890 - INFO - Data loaded successfully
+2026-04-16 14:29:31,212 - INFO - Data loaded successfully
+2026-04-16 14:30:19,795 - INFO - Data loaded successfully
+2026-04-16 14:31:32,282 - INFO - Data loaded successfully
+2026-04-16 14:31:32,285 - INFO - ETL completed successfully
