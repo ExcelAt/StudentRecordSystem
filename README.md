@@ -1,96 +1,193 @@
 # 🎓 Student Records Management System
 
-## 📌 Project Overview
+## 📌 Overview
 
-The Student Records Management System is a group project designed to manage and analyze student data, including student information, course enrollments, grades, and attendance records. The system integrates a relational database with Python-based ETL pipelines and SQL queries to ensure efficient data processing, storage, and reporting.
+This project is a **Student Records Management System** developed as a group project. It demonstrates skills in **database design, ETL pipelines, and data visualization** using modern tools.
 
----
+The system allows users to manage and analyze:
 
-## 🎯 Objectives
+* Student information
+* Course enrollments
+* Grades and performance
+* Attendance records
 
-* Design a normalized relational database (up to 3NF)
-* Build ETL pipelines using Python
-* Write efficient SQL queries and views
-* Develop a simple CLI (Command-Line Interface)
-* Ensure data quality through validation and testing
+It also includes a **Streamlit dashboard** for interactive data exploration and reporting.
 
 ---
 
 ## 🛠️ Technologies Used
 
-* **Database:** SQLite (can be adapted to PostgreSQL/MySQL)
-* **Python Libraries:** pandas, Faker, sqlite3
-* **ETL:** Python scripts
-* **Tools:** VS Code, GitHub
+* **Python** (Data processing & ETL)
+* **PostgreSQL / Azure Database** (Database)
+* **SQL** (Queries & data modeling)
+* **Streamlit** (Frontend dashboard)
+* **Pandas & NumPy** (Data manipulation)
 
 ---
 
-## ⚙️ Features
-
-* Generate realistic student data using Faker
-* ETL pipeline (Extract, Transform, Load)
-* Data validation (emails, grades, attendance)
-* GPA calculation and performance analysis
-* SQL queries for reporting and insights
-* CLI interface for basic database operations
-
----
-
-## 🗂️ Project Structure
+## 📁 Project Structure
 
 ```
-StudentManagementSystem/
+StudentRecordSystem/
 │
-├── student_system.py
-├── cli.py
-├── students.csv
-├── courses.xlsx
-├── enrollments.csv
-├── grades.csv
-├── attendance.json
-├── etl.log
-├── student_records.db
-└── README.md
+├── .venv/                     # Virtual environment
+├── .env                      # Environment variables (DB credentials, etc.)
+├── .gitignore                # Git ignore file
+│
+├── app/                      # Core application logic
+├── docs/                     # Project documentation
+├── sql/                      # SQL scripts and queries
+├── SR_DatabaseSetup/         # Database setup resources
+│
+├── streamlit_app/            # Streamlit frontend application
+│   ├── components/           # Reusable UI components
+│   ├── pages/                # Application pages
+│   │   ├── 02_dashboard.py   # Dashboard view
+│   │   ├── 03_students.py    # Student management
+│   │   ├── 04_courses.py     # Course management
+│   │   ├── 05_grades.py      # Grades tracking
+│   │   ├── 06_attendance.py  # Attendance tracking
+│   │   └── 07_reports.py     # Reports and analytics
+│   │
+│   ├── styles/               # Custom styling
+│   │   └── main.css
+│   │
+│   ├── utils/                # Helper functions
+│   └── main.py               # Streamlit app entry point
+│
+├── student_dataset/          # Sample or raw data
+│
+├── create_database.py        # Script to create database
+├── create_tables.py          # Script to create tables
+├── create_user_accounts.py   # Script to create users
+├── create_users_table.py     # Script to create users table
+│
+├── etl_pipeline.py           # ETL pipeline script
+├── load_data.py              # Data loading script
+├── etl_pipeline.log          # ETL logs
+│
+├── tests.py                  # Test scripts
+├── requirements.txt          # Project dependencies
+└── README.md                 # Project documentation
 ```
 
 ---
 
-## 📊 Sample Functionalities
+## ⚙️ Setup Instructions
 
-* View top-performing students
-* Identify students with low attendance
-* Analyze course performance
-* Manage student records via CLI
+### 1. Clone the Repository
+
+```bash
+git clone <your-repo-link>
+cd StudentRecordSystem
+```
+
+### 2. Create Virtual Environment
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file and add:
+
+```
+DB_HOST=your_host
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=your_database
+DB_SSLMODE=require
+```
 
 ---
 
-## ✅ Data Quality Measures
+## 🗄️ Database Setup
 
-* Email validation
-* Duplicate removal
-* Grade range checks (0–100)
-* Attendance validation
-* Error handling and logging
+Run the following scripts in order:
 
----
-
-## 📌 Deliverables
-
-* Python scripts (ETL + CLI)
-* Database schema
-* Sample datasets
-* SQL queries
-* Documentation and README
+```bash
+python create_database.py
+python create_tables.py
+python create_users_table.py
+python create_user_accounts.py
+```
 
 ---
 
-## 👥 Team
+## 🔄 Running the ETL Pipeline
 
-Group Project Submission
+```bash
+python etl_pipeline.py
+```
+
+This will:
+
+* Extract data from source files
+* Transform data into required format
+* Load data into the database
 
 ---
 
-## 📅 Deadline
+## 📊 Running the Streamlit App
 
-17 April 2026
+```bash
+cd streamlit_app
+streamlit run main.py
+```
 
+Then open the provided local URL in your browser.
+
+---
+
+## ✨ Features
+
+* Manage student records
+* Track course enrollments
+* Monitor grades and performance
+* Record attendance
+* Generate reports and dashboards
+* Interactive UI with Streamlit
+
+---
+
+## 🧪 Testing
+
+Run tests using:
+
+```bash
+python tests.py
+```
+
+---
+
+## 👥 Project Type
+
+* **Format:** Group Project
+* **Focus Areas:** Database Design, ETL, Data Analytics, Dashboarding
+
+---
+
+## 📌 Notes
+
+* Ensure your database connection is correct before running scripts
+* Keep your `.env` file secure and do not commit it to GitHub
+
+---
+
+## 📄 License
+
+This project is for educational purposes.
+
+---
+
+## 🙌 Acknowledgements
+
+Developed as part of a learning program to build practical skills in **data engineering and analytics**.
