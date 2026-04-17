@@ -153,7 +153,30 @@ def add_student(name, surname, email, date_of_birth, gender):
     conn.commit()
     cursor.close()
     conn.close()
+def delete_student(student_id):
+    """
+    Deletes a student record and their associated user account
+    from the database.
 
+    Parameters
+    ----------
+    student_id : int
+        The ID of the student to delete.
+    """
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        DELETE FROM users WHERE student_id = %s;
+    """, (student_id,))
+
+    cursor.execute("""
+        DELETE FROM students WHERE id = %s;
+    """, (student_id,))
+
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 # ============================================================
 # PAGE HEADER
@@ -312,5 +335,65 @@ display_df = filtered_df[
 display_df.columns = ["ID", "Name", "Surname", "Email", "Date of Birth", "Gender"]
 
 st.dataframe(display_df, use_container_width=True, hide_index=True)
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("<hr>", unsafe_allow_html=True)
+
+
+# ============================================================
+# DELETE STUDENT SECTION
+# ============================================================
+
+render_section_title("Remove Student")
+
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+
+student_options = {
+    f"{row['name']} {row['surname']} ({row['email']})": row["id"]
+    for _, row in students_df.iterrows()
+}
+
+with st.form(key="delete_student_form"):
+    selected_label = st.selectbox(
+        "Select Student To Remove",
+        options=list(student_options.keys()),
+    )
+
+    st.markdown(
+        """
+        <div style="
+            color: rgba(255, 80, 80, 0.9);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        ">
+            Warning: This will permanently delete the student record
+            and their login account. This action cannot be undone.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    confirm = st.checkbox("I confirm I want to permanently delete this student")
+
+    submitted = st.form_submit_button(
+        "Remove Student",
+        use_container_width=True,
+    )
+
+    if submitted:
+        if not confirm:
+            st.error("Please confirm the deletion by checking the confirmation box.")
+        else:
+            try:
+                student_id = student_options[selected_label]
+                delete_student(student_id)
+                st.success(
+                    f"Student removed successfully."
+                )
+                st.cache_data.clear()
+            except Exception as e:
+                st.error(f"Failed to remove student. {str(e)}")
 
 st.markdown("</div>", unsafe_allow_html=True)
